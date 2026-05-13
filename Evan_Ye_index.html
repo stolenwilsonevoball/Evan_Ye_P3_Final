@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where the Money Is in Esports</title>
+  <link rel="stylesheet" href="Evan_Ye_styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="Evan_Ye_script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Interactive Data Story</p>
+      <h1>Where the Money Is in Esports</h1>
+      <p class="hero-text">
+        Esports includes many different games, but the money is not spread evenly.
+        This project uses player earnings and tournament prize data to show how a
+        relatively small number of games, events, and countries shape most of the financial landscape.
+      </p>
+      <div class="stats-grid" id="hero-stats"></div>
+      <p class="hero-note" id="hero-note"></p>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-section">
+      <div class="section-copy">
+        <p class="section-label">Section 1</p>
+        <h2>Which games dominate player earnings?</h2>
+        <p>
+          The first view looks at total player winnings by game. This sets up the larger story
+          by showing that the esports space is broad, but not financially balanced.
+        </p>
+      </div>
+      <div class="chart-card">
+        <canvas id="gamesChart"></canvas>
+      </div>
+    </section>
+
+    <section class="page-section alt-section">
+      <div class="section-copy">
+        <p class="section-label">Section 2</p>
+        <h2>Country rankings tell a similar story</h2>
+        <p>
+          The second view shifts from games to countries. Instead of asking which titles are largest,
+          it asks where the highest-earning players are concentrated.
+        </p>
+      </div>
+      <div class="chart-card">
+        <canvas id="countriesChart"></canvas>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="section-copy">
+        <p class="section-label">Section 3</p>
+        <h2>Explore one game at a time</h2>
+        <p>
+          This is the main interaction in the project. Selecting a game updates the section below so users
+          can compare how individual titles differ in terms of country representation, player counts, and tournament presence.
+        </p>
+      </div>
+
+      <div class="interactive-panel">
+        <div class="control-row">
+          <label for="game-select">Select a game</label>
+          <select id="game-select"></select>
+        </div>
+
+        <div class="selected-cards" id="selected-cards"></div>
+
+        <div class="chart-card compact-card">
+          <canvas id="selectedGameChart"></canvas>
+        </div>
+
+        <p class="section-note" id="selected-game-note"></p>
+      </div>
+    </section>
+
+    <section class="page-section alt-section">
+      <div class="section-copy">
+        <p class="section-label">Section 4</p>
+        <h2>Looking at tournaments for the selected game</h2>
+        <p>
+          The tournament view focuses on prize money and scale. Hovering over a point reveals the tournament,
+          while the selected game keeps the comparison specific instead of overwhelming.
+        </p>
+      </div>
+      <div class="chart-card">
+        <canvas id="tournamentChart"></canvas>
+      </div>
+      <p class="section-note" id="tournament-note"></p>
+    </section>
+
+    <section class="page-section closing-section">
+      <div class="section-copy">
+        <p class="section-label">Section 5</p>
+        <h2>The overall pattern is concentration</h2>
+        <p>
+          The final section returns to the full dataset and summarizes the main pattern. Even with many games represented,
+          a small group of titles takes up a large share of the money.
+        </p>
+      </div>
+      <div class="chart-card">
+        <div id="concentrationList" class="concentration-list"></div>
+      </div>
+      <p class="final-takeaway" id="final-takeaway"></p>
+    </section>
+  </main>
+
+  <div class="status-box" id="status-box">Loading workbook...</div>
+</body>
+</html>
