@@ -7,6 +7,16 @@ const state = {
   currentGame: ''
 };
 
+const GAME_COLORS = [
+  '#3b82f6', '#60a5fa', '#93c5fd', '#2563eb', '#1d4ed8',
+  '#14b8a6', '#2dd4bf', '#5eead4', '#0f766e', '#0d9488'
+];
+
+const COUNTRY_COLORS = [
+  '#f59e0b', '#fbbf24', '#fcd34d', '#f97316', '#fb923c',
+  '#14b8a6', '#2dd4bf', '#5eead4', '#3b82f6', '#60a5fa'
+];
+
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
@@ -222,7 +232,7 @@ function renderTopGamesChart() {
       datasets: [
         {
           data: data.map((d) => d.value),
-          backgroundColor: '#444444',
+          backgroundColor: GAME_COLORS,
           borderRadius: 6
         }
       ]
@@ -283,7 +293,7 @@ function renderTopCountriesChart() {
       datasets: [
         {
           data: data.map((d) => d.value),
-          backgroundColor: '#6a6a6a',
+          backgroundColor: COUNTRY_COLORS,
           borderRadius: 6
         }
       ]
@@ -381,7 +391,7 @@ function renderSelectedGameChart(filteredPlayers, game) {
       datasets: [
         {
           data: data.map((d) => d.value),
-          backgroundColor: '#4f4f4f',
+          backgroundColor: '#8b5cf6',
           borderRadius: 6
         }
       ]
@@ -461,8 +471,8 @@ function renderTournamentChart(filteredTournaments, game) {
         {
           label: game,
           data: plotted,
-          backgroundColor: 'rgba(68, 68, 68, 0.65)',
-          borderColor: '#2f2f2f',
+          backgroundColor: 'rgba(59, 130, 246, 0.45)',
+          borderColor: '#2563eb',
           borderWidth: 1
         }
       ]
